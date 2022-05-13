@@ -1,7 +1,7 @@
 from django.urls import path
-
 from . import views
 
+# Routers provide an easy way of automatically determining the URL conf.
 app_name = 'polls'
 urlpatterns = [
     # ex: /polls/
@@ -12,4 +12,8 @@ urlpatterns = [
     path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
     # ex: /polls/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
+
+    path('snippets/', views.snippet_list),
+
+    path('snippets/<int:pk>/', views.snippet_detail),
 ]
